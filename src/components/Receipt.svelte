@@ -2,10 +2,10 @@
 	import { settings, items } from '$lib/store';
 
 
-	let { orders }: { orders: Map<string, { qty: number }> } = $props();
+	let { orders }: { orders: Map<number, { qty: number }> } = $props();
 
-	let list = $derived([...orders].map(([name, order]) => {
-		let data = $items.find( item => item.title == name )
+	let list = $derived([...orders].map(([index, order]) => {
+		let data = $items[index]
 		return { ...order, ...data, sum: ( data?.price || 0 ) * order.qty }
 	}))
 
@@ -41,7 +41,7 @@
 		<table class="w-full text-left">
 			<thead>
 				<tr class="flex">
-					<th class="w-full py-2">Ед.</th>
+					<th class="w-full py-2">Наименование</th>
 					<th class="min-w-[44px] py-2">шт.</th>
 					<th class="min-w-[44px] py-2">Сумма</th>
 				</tr>
