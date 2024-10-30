@@ -1,9 +1,8 @@
 <script lang="ts">
 	import { settings, items } from '$lib/store';
 
-   	// let orders: Map<string, { qty: number }> = $state(new Map());
 
-	let { orders } = $props();
+	let { orders }: { orders: Map<string, { qty: number }> } = $props();
 
 	let list = $derived([...orders].map(([name, order]) => {
 		let data = $items.find( item => item.title == name )

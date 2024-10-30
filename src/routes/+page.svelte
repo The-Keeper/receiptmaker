@@ -2,7 +2,7 @@
     import { items, settings } from "$lib/store";
 	import Receipt from "../components/Receipt.svelte";
 
-    let orders = $state(new Map());
+    let orders: Map<string, { qty: number }> = $state(new Map());
 
     orders.set("Товар 1", { qty: 5 })
 
