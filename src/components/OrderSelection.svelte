@@ -5,6 +5,7 @@
 		let data = $items.find(i => i.id == o.item_id)
 		return { ...o, ...data, sum: ( data?.price || 0 ) * o.qty }
 	}))
+
 </script>
 
 <div>
@@ -14,10 +15,10 @@
 </div>
 
 <div>
-	{#each list as orderItem}
+	{#each list as orderItem, index}
 	<div>
-		<div>{ orderItem.title }</div>
-		<input bind:value={orderItem.qty} />
+		<div>{ orderItem.item_id }</div>
+		<input bind:value={$order[index].qty} />
 	</div>
 	{/each}
 </div>
