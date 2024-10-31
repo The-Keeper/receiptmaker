@@ -1,11 +1,5 @@
 <script lang="ts">
-	import { items, order, addOrderItem } from '$lib/store';
-
-	let list = $derived([...$order].map((o) => {
-		let data = $items.find(i => i.id == o.item_id)
-		return { ...o, ...data, sum: ( data?.price || 0 ) * o.qty }
-	}))
-
+	import { items, order, list, addOrderItem } from '$lib/store';
 </script>
 
 <div>
@@ -15,7 +9,7 @@
 </div>
 
 <div>
-	{#each list as orderItem, index}
+	{#each $list as orderItem, index}
 	<div>
 		<div>{ orderItem.item_id }</div>
 		<input bind:value={$order[index].qty} />

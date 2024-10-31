@@ -1,5 +1,5 @@
 import { persisted } from 'svelte-persisted-store';
-import { writable } from 'svelte/store';
+import { writable, derived } from 'svelte/store';
 
 export interface StoreItem {
     id: string,
@@ -7,8 +7,7 @@ export interface StoreItem {
     price: number
 }
 
-export const order = writable([] as { item_id: string, qty: number}[])
-
+export const order = writable([] as { item_id: string, qty: number}[]);
 
 export const settings = persisted('settings', {
     name: 'Название',
@@ -29,6 +28,13 @@ export const items = persisted('items', [
         },
     ] as StoreItem[]
 )
+
+export const list = derived([items, order], ([items, order]) => {
+    return [...order].map((o) => {
+        let data = items.find(i => i.id == o.item_id)
+        return { ...o, ...data, sum: ( data?.price || 0 ) * o.qty }
+    })
+})
 
 export const addOrderItem = ( item: StoreItem ) => {
     order.update( prev => {
