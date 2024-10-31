@@ -3,17 +3,26 @@
 	import { Button, Label, Input, Select } from 'svelte-5-ui-lib';
 </script>
 
-<div class="flex gap-2">
+<div class="w-full grid gap-2">
 	{#each $items as item, index}
 		<Button onclick={ () => addOrderItem(item) }>{ item.title }</Button>
 	{/each}
 </div>
 
-<div class="flex">
-	{#each $list as orderItem, index}
-	<div>
-			{ orderItem.title }
-			<Input type="number" bind:value={$order[index].qty} />
-	</div>
-	{/each}
-</div>
+
+<table class="w-full text-left">
+	<thead>
+		<tr>
+			<th class="py-2">Наименование</th>
+			<th class="min-w-[44px] py-2 text-center">шт.</th>
+		</tr>
+	</thead>
+	<tbody>
+		{#each $list as rec, index}
+			<tr>
+				<td class="py-1">{ rec.title }</td>
+				<td class="min-w-[44px] text-center"><Input type="number" bind:value={$order[index].qty} /></td>
+			</tr>
+		{/each}
+	</tbody>
+</table>
