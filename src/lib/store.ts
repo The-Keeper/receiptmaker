@@ -12,9 +12,13 @@ export const order = writable([] as { item_id: string, qty: number}[]);
 export const settings = persisted('settings', {
     name: 'Название',
     address: 'Адрес',
-    phone: '+7-номер-телефона'
+    phone: '+7-номер-телефона',
+    currency: 'KZT',
+    locale: 'ru-RU',
 })
-  
+
+export const currencyFormatter = derived(settings, (settings) => new Intl.NumberFormat(settings.locale, { style: 'currency', currency: settings.currency }))
+
 export const items = persisted('items', [
         {
             id: '123',

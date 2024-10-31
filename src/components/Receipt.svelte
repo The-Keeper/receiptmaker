@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { settings, list } from '$lib/store';
+	import { settings, list, currencyFormatter } from '$lib/store';
 </script>
 
 <div class="w-80 rounded bg-gray-50 text-gray-900 px-6 pt-8 shadow-lg">
@@ -31,18 +31,18 @@
 	<div class="flex flex-col gap-3 pb-6 pt-2 text-xs">
 		<table class="w-full text-left">
 			<thead>
-				<tr class="flex">
-					<th class="w-full py-2">Наименование</th>
-					<th class="min-w-[44px] py-2">шт.</th>
-					<th class="min-w-[44px] py-2">Сумма</th>
+				<tr>
+					<th class="py-2">Наименование</th>
+					<th class="min-w-[44px] py-2 text-center">шт.</th>
+					<th class="min-w-[44px] py-2 text-end">Сумма</th>
 				</tr>
 			</thead>
 			<tbody>
                 {#each $list as rec, index}
-                    <tr class="flex">
-                        <td class="flex-1 py-1">{ rec.title }</td>
-                        <td class="min-w-[44px]">{ rec.qty }</td>
-                        <td class="min-w-[44px]">{ rec.sum }</td>
+                    <tr>
+                        <td class="py-1">{ rec.title }</td>
+                        <td class="min-w-[44px] text-center">{ rec.qty }</td>
+                        <td class="min-w-[44px] text-end">{ $currencyFormatter.format(rec.sum) }</td>
                     </tr>
                 {/each}
 			</tbody>
