@@ -3,7 +3,7 @@
 	import { Button, Label, Input, Select } from 'svelte-5-ui-lib';
 </script>
 
-<div class="w-full items-grid">
+<div class="w-full items-grid gap-2">
 	{#each $items as item, index}
 		<Button onclick={ () => addOrderItem(item) }>{ item.title }</Button>
 	{/each}
