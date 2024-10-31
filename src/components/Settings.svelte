@@ -2,13 +2,13 @@
 	import { settings, items } from '$lib/store';
 	import { Label, Input, Select } from 'svelte-5-ui-lib';
 
-	const currencies = Intl.supportedValuesOf('currency');
-	const currencyValues = currencies.map((c) => {
+	let currencies = $state(Intl.supportedValuesOf('currency'));
+	const currencyValues = $derived(currencies.map((c) => {
 		return {
 			value: c,
 			name: c
 		};
-	});
+	}));
 </script>
 
 <h3>Настройки</h3>

@@ -3,7 +3,7 @@
 	import '../app.css';
 	let { children } = $props();
 
-	import { Button, Sidebar, SidebarGroup, SidebarItem, SidebarCta } from 'svelte-5-ui-lib';
+	import { Button, Sidebar, SidebarButton, SidebarGroup, SidebarItem, SidebarCta, uiHelpers } from 'svelte-5-ui-lib';
 
 	import { DarkMode } from 'flowbite-svelte';
 	let activeUrl = $derived($page.url.pathname);
@@ -11,11 +11,19 @@
 	let spanClass = 'flex-1 ms-3 whitespace-nowrap';
 
 	let btnClass = 'text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-xl p-2';
-  </script>
   
+	const sidebarUi = uiHelpers();
+	let isSidebarOpen = $state(false);
+	$effect(() => {
+		isSidebarOpen = sidebarUi.isOpen;
+	});
+
+ </script>
+  
+  <SidebarButton onclick={ sidebarUi.toggle } class="mb-2" />
   <div class="relative">
 
-  <Sidebar activeClass="p-2" nonActiveClass="p-2">
+  <Sidebar isOpen={isSidebarOpen} closeSidebar={sidebarUi.close}  activeClass="p-2" nonActiveClass="p-2">
 	  <SidebarGroup>
 		<SidebarItem label="Чеки" href="/receipts" active={ activeUrl === '/receipts' }>
 			{#snippet iconSlot()}
