@@ -1,11 +1,10 @@
 <script lang="ts">
 	import { settings, items, order } from '$lib/store';
 
-	let list = $derived([...$order].map((item) => {
-		let data = $items[item.index]
-		return { ...item, ...data, sum: ( data?.price || 0 ) * item.qty }
+	let list = $derived([...$order].map((o) => {
+		let data = $items.find(i => i.id == o.item_id)
+		return { ...o, ...data, sum: ( data?.price || 0 ) * o.qty }
 	}))
-
 </script>
 
 <div class="w-80 rounded bg-gray-50 px-6 pt-8 shadow-lg">
@@ -44,11 +43,11 @@
 				</tr>
 			</thead>
 			<tbody>
-                {#each list as order, index}
+                {#each list as rec, index}
                     <tr class="flex">
-                        <td class="flex-1 py-1">{ order.title }</td>
-                        <td class="min-w-[44px]">{ order.qty }</td>
-                        <td class="min-w-[44px]">{ order.sum }</td>
+                        <td class="flex-1 py-1">{ rec.title }</td>
+                        <td class="min-w-[44px]">{ rec.qty }</td>
+                        <td class="min-w-[44px]">{ rec.sum }</td>
                     </tr>
                 {/each}
 			</tbody>

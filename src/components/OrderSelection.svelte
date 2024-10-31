@@ -1,24 +1,22 @@
 <script lang="ts">
-	import { items, order } from '$lib/store';
+	import { items, order, addOrderItem } from '$lib/store';
 
-	
+	let list = $derived([...$order].map((o) => {
+		let data = $items.find(i => i.id == o.item_id)
+		return { ...o, ...data, sum: ( data?.price || 0 ) * o.qty }
+	}))
 </script>
 
 <div>
 	{#each $items as item, index}
-		<button on:click={ () => {
-		
-			// let qty = $order.get(index)?.qty || 0 + 1;
-			// $order.set(index, { qty })
-
-		} }>{ item.title }</button>
+		<button onclick={ () => addOrderItem(item) }>{ item.title }</button>
 	{/each}
 </div>
 
 <div>
-	{#each $order as orderItem}
+	{#each list as orderItem}
 	<div>
-		<div>{ $items[orderItem.index].title }</div>
+		<div>{ orderItem.title }</div>
 		<input bind:value={orderItem.qty} />
 	</div>
 	{/each}
