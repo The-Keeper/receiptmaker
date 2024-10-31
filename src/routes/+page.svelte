@@ -9,14 +9,13 @@
 
 { JSON.stringify($items) }
 { JSON.stringify($order) }
-<button on:click={ () => $order = [{index: 1, qty: 5} ] }>set item</button>
 
 <Settings></Settings>
 
 <div>
     <button on:click={ () => settings.reset() }>reset settings</button>
     <button on:click={ () => items.reset() }>reset items</button>
-    <button on:click={ () => order.reset() }>reset order</button>
+    <button on:click={ () => order.set([]) }>reset order</button>
 
 </div>
 
