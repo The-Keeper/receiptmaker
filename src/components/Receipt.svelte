@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { settings, list } from '$lib/store';
 	const currencyFormatter = $derived(new Intl.NumberFormat($settings.locale, { style: 'currency', currency: $settings.currency ? $settings.currency : 'KZT' }))
+
+	let total = $derived($list.reduce((accumulator, value) => accumulator + value.sum, 0 ))
 </script>
 
 <div class="w-80 rounded bg-gray-50 text-gray-900 px-6 pt-8 shadow-lg">
@@ -46,6 +48,11 @@
                         <td class="min-w-[44px] text-end">{ currencyFormatter ? currencyFormatter.format(rec.sum) : '' }</td>
                     </tr>
                 {/each}
+				<tr>
+					<td class="py-1"><b>ИТОГО</b></td>
+					<td class="min-w-[44px] text-center"></td>
+					<td class="min-w-[44px] text-end"><b>{ currencyFormatter ? currencyFormatter.format( total ) : '' }</b></td>
+				</tr>	
 			</tbody>
 		</table>
 		<div class=" border border-b border-dashed"></div>

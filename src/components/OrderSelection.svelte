@@ -3,14 +3,7 @@
 	import { Button, Label, Input, Select } from 'svelte-5-ui-lib';
 </script>
 
-<div class="w-full items-grid">
-	{#each $items as item, index}
-		<Button onclick={ () => addOrderItem(item) }>{ item.title }</Button>
-	{/each}
-</div>
-
-
-<table class="w-full text-left">
+<table class="block">
 	<thead>
 		<tr>
 			<th class="py-2">Наименование</th>
@@ -26,10 +19,3 @@
 		{/each}
 	</tbody>
 </table>
-
-<style>
-	.items-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-	}
-</style>
