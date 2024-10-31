@@ -25,6 +25,11 @@
 	</div>
 
 	<div>
+		<Label for="name" class="mb-2">Номер телефона</Label>
+		<Input type="text" id="name" required bind:value={$settings.phone} />
+	</div>
+
+	<div>
 		<Label for="name" class="mb-2">Валюта</Label>
 		<Select
 			bind:value={$settings.currency}

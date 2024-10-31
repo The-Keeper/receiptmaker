@@ -49,6 +49,8 @@
 		</table>
 		<div class=" border border-b border-dashed"></div>
 		<div class="flex flex-col items-center justify-center gap-2 py-4">
+
+		{#if $settings.phone }
 			<p class="flex gap-2">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -62,6 +64,9 @@
 					></path></svg
 				> { $settings.phone }
 			</p>
-		</div>
+			
+		{/if}
+	</div>
+
 	</div>
 </div>
