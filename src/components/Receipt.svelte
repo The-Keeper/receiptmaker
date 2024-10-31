@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { settings, list, currencyFormatter } from '$lib/store';
+	import { settings, list } from '$lib/store';
+	const currencyFormatter = $derived(new Intl.NumberFormat($settings.locale, { style: 'currency', currency: $settings.currency ? $settings.currency : 'KZT' }))
 </script>
 
 <div class="w-80 rounded bg-gray-50 text-gray-900 px-6 pt-8 shadow-lg">
@@ -42,7 +43,7 @@
                     <tr>
                         <td class="py-1">{ rec.title }</td>
                         <td class="min-w-[44px] text-center">{ rec.qty }</td>
-                        <td class="min-w-[44px] text-end">{ $currencyFormatter.format(rec.sum) }</td>
+                        <td class="min-w-[44px] text-end">{ currencyFormatter ? currencyFormatter.format(rec.sum) : '' }</td>
                     </tr>
                 {/each}
 			</tbody>

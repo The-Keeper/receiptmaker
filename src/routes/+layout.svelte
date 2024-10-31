@@ -20,9 +20,11 @@
 
  </script>
   
-  <SidebarButton onclick={ sidebarUi.toggle } class="mb-2" />
-  <div class="relative">
+  <header class="fixed top-0 z-40 mx-auto w-full flex-none border-b border-gray-200 bg-white dark:border-gray-600 dark:bg-gray-800">
+	<SidebarButton onclick={ sidebarUi.toggle } class="mb-2" />
+</header>
 
+  <div class="overflow-hidden lg:flex">
   <Sidebar isOpen={isSidebarOpen} closeSidebar={sidebarUi.close}  activeClass="p-2" nonActiveClass="p-2">
 	  <SidebarGroup>
 		<SidebarItem label="Чеки" href="/receipts" active={ activeUrl === '/receipts' }>
@@ -51,7 +53,7 @@
 	  </SidebarGroup>
   </Sidebar>
 
-	<main class="lg:ml-72 w-full mx-auto">
+  	<main class="relative h-full w-full overflow-y-auto lg:ml-64 pt-[70px]">
 		{@render children()}
 	</main>
 </div>

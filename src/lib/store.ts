@@ -17,8 +17,6 @@ export const settings = persisted('settings', {
     locale: 'ru-RU',
 })
 
-export const currencyFormatter = derived(settings, (settings) => new Intl.NumberFormat(settings.locale, { style: 'currency', currency: settings.currency }))
-
 export const items = persisted('items', [
         {
             id: '123',

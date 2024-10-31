@@ -2,8 +2,10 @@
 	import { settings, items } from '$lib/store';
 	import { Label, Input, Select } from 'svelte-5-ui-lib';
 
-	let currencies = $state(Intl.supportedValuesOf('currency'));
-	const currencyValues = $derived(currencies.map((c) => {
+	// let currencies = $state(Intl.supportedValuesOf('currency'));
+
+	let currencies = $state(['RUB', 'KZT', 'EUR', 'USD']);
+	const currencyValues = $derived(currencies.map((c: any) => {
 		return {
 			value: c,
 			name: c
