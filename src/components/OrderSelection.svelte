@@ -1,12 +1,25 @@
 <script lang="ts">
-	import { settings, items } from '$lib/store';
+	import { items, order } from '$lib/store';
+
+	
 </script>
 
 <div>
-	{#each $items as item}
+	{#each $items as item, index}
+		<button on:click={ () => {
+		
+			// let qty = $order.get(index)?.qty || 0 + 1;
+			// $order.set(index, { qty })
+
+		} }>{ item.title }</button>
+	{/each}
+</div>
+
+<div>
+	{#each $order as orderItem}
 	<div>
-		<input bind:value={item.title} />
-		<input bind:value={item.price} />
+		<div>{ $items[orderItem.index].title }</div>
+		<input bind:value={orderItem.qty} />
 	</div>
 	{/each}
 </div>

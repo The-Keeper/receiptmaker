@@ -1,12 +1,9 @@
 <script lang="ts">
-	import { settings, items } from '$lib/store';
+	import { settings, items, order } from '$lib/store';
 
-
-	let { orders }: { orders: Map<number, { qty: number }> } = $props();
-
-	let list = $derived([...orders].map(([index, order]) => {
-		let data = $items[index]
-		return { ...order, ...data, sum: ( data?.price || 0 ) * order.qty }
+	let list = $derived([...$order].map((item) => {
+		let data = $items[item.index]
+		return { ...item, ...data, sum: ( data?.price || 0 ) * item.qty }
 	}))
 
 </script>

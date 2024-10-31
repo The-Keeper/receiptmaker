@@ -17,3 +17,5 @@ export const items = persisted('items', [
         },
     ]
 )
+
+export const order = persisted<{index: number, qty: number}[]>('order', [])
