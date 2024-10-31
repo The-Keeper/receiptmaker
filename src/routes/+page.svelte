@@ -3,7 +3,6 @@
     
     import Settings from "../components/Settings.svelte";
 	import OrderSelection from "../components/OrderSelection.svelte";
-	import Receipt from "../components/Receipt.svelte";
 
 </script>
 
@@ -19,5 +18,4 @@
 
 </div>
 
-<Receipt></Receipt>
 <OrderSelection></OrderSelection>

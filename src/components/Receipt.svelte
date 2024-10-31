@@ -2,7 +2,7 @@
 	import { settings, list } from '$lib/store';
 </script>
 
-<div class="w-80 rounded bg-gray-50 px-6 pt-8 shadow-lg">
+<div class="w-80 rounded bg-gray-50 text-gray-900 px-6 pt-8 shadow-lg">
 	<img
 		src=""
 		alt=""
