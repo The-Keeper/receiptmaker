@@ -18,6 +18,8 @@
 		isSidebarOpen = sidebarUi.isOpen;
 	});
 
+	import { items } from '$lib/store';
+
  </script>
   
   <header class="fixed top-0 z-40 mx-auto w-full flex-none border-b border-gray-200 bg-white dark:border-gray-600 dark:bg-gray-800">
@@ -37,7 +39,7 @@
 			<StoreSolid class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
 			{/snippet}
 			{#snippet subtext()}
-			<span class="inline-flex justify-center items-center px-2 ms-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-300"> Pro </span>
+			<span class="inline-flex justify-center items-center px-2 ms-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-300"> { $items.length } </span>
 			{/snippet}
 		</SidebarItem>
 		<SidebarItem label="Настройки" href="/settings" active={activeUrl === '/settings'}>
