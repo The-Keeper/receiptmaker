@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { settings, items } from '$lib/store';
-	import { Input, NumberInput } from 'flowbite-svelte';
+	import { Input } from 'svelte-5-ui-lib';
 </script>
 
 <h3>Настройки</h3>
@@ -10,7 +10,7 @@
 	<div>
 		<Input bind:value={item.title} />
 		<div>
-			<NumberInput bind:value={item.price} />
+			<Input type="number" bind:value={item.price} />
 		</div>
 	</div>
 	{/each}

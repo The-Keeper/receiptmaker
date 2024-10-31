@@ -1,14 +1,14 @@
 <script lang="ts">
 	import { settings, items } from '$lib/store';
+	import { Label, Input } from 'svelte-5-ui-lib';
+
 </script>
 
 <h3>Настройки</h3>
 
 <div>
-	{#each $items as item}
 	<div>
-		<input bind:value={item.title} />
-		<input bind:value={item.price} />
-	</div>
-	{/each}
+		<Label for="name" class="mb-2">Название места</Label>
+		<Input type="text" id="name" required bind:value={ $settings.name }/>
+	  </div>
 </div>
