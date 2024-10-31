@@ -1,21 +1,49 @@
 <script lang="ts">
-	import { settings, items } from '$lib/store';
+	import { settings, items, type StoreItem } from '$lib/store';
 	import { Button, Input } from 'svelte-5-ui-lib';
+	import { array_move } from '$lib';
+
+	import { ArrowLeftOutline, ArrowRightOutline, CloseCircleSolid } from 'flowbite-svelte-icons';
 
 	function addItem() {
 		let newItems = $items;
 		newItems.push({ id: new Date().toISOString(), title: `Товар ${$items.length}`, price: 0 });
 		$items = newItems;
 	}
+
+	function moveItemLeft(index: number) {
+		if (index > 0) {
+			let newItems = array_move($items, index, index-1);
+			$items = newItems;
+		}
+	}
+
+	function removeItem(index: number) {
+		$items.splice(index, 1);
+		$items = $items;
+	}
+
+
+	function moveItemRight(index: number) {
+		if (index < $items.length - 1) {
+			let newItems = array_move($items, index, index+1);
+			$items = newItems;
+		}
+	}
 </script>
 
 <h3>Настройки</h3>
 
 <div class="items-grid gap-2">
-	{#each $items as item}
+	{#each $items as item, index}
 		<div class="block">
-			<Input bind:value={item.title} />
 			<div>
+				<Button onclick={() => moveItemLeft(index)} disabled={index == 0} pill={true} class="p-1" color="alternative"><ArrowLeftOutline class="w-4 h-4" /></Button>
+				<Button onclick={ () => removeItem(index) } pill={true} class="p-1" color="red"><CloseCircleSolid /></Button>
+				<Button onclick={() => moveItemRight(index)} disabled={index == $items.length - 1} pill={true} class="p-1" color="alternative"><ArrowRightOutline  class="w-4 h-4" /></Button>
+			</div>
+			<div>
+				<Input bind:value={item.title} />
 				<Input type="number" bind:value={item.price} />
 			</div>
 		</div>
