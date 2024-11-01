@@ -15,7 +15,7 @@ export const settings = persisted('settings', {
     phone: '+7-номер-телефона',
     locale: 'ru-RU',
     pricetemplate: "${price} ед.",
-    icon: "/coffee.png",
+    icon: "/favicon.png",
 })
 
 export const items = persisted('items', [
