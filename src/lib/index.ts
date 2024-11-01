@@ -30,3 +30,15 @@ export function download(content: any, fileName: string, contentType: string) {
     a.download = fileName;
     a.click();
 }
+
+export function upload() {
+    let input = document.createElement('input');
+    input.type = 'file';
+    input.onchange = _ => {
+      // you can use this method to get file and perform respective operations
+        let files = Array.from(input.files);
+        console.log(files[0]);
+    };
+    input.click();
+    
+  }

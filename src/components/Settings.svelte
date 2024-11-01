@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { settings, items } from '$lib/store';
 	import { Label, Button, Input, Select } from 'svelte-5-ui-lib';
-	import { download } from '$lib'
+	import { upload, download } from '$lib'
 
 	function SaveSettings() {
 		const jsonData = {
@@ -12,7 +12,7 @@
 	}
 
 	function LoadSettings() {
-
+		upload()
 	}
 </script>
 
