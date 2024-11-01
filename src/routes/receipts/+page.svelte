@@ -4,6 +4,8 @@
 	import Receipt from '../../components/Receipt.svelte';
 	import SelectionPanel from '../../components/SelectionPanel.svelte';
 
+	import { PrinterSolid } from 'flowbite-svelte-icons';
+
 	function Print() {
 		window.print()
 	}
@@ -14,9 +16,13 @@
 	<SelectionPanel></SelectionPanel>
 
 	<div class="flex flex-wrap gap-4">
+
+		<div class="flex flex-col gap-4 items-center">
 		<Receipt></Receipt>
+
+		<Button onclick = { Print }><PrinterSolid class="me-2 h-4 w-4" /> Напечатать</Button>
+
+		</div>
 		<OrderSelection></OrderSelection>
 	</div>
-
-	<Button onclick = { Print }>Напечатать</Button>
 </div>

@@ -32,8 +32,6 @@
 	}
 </script>
 
-<h3>Настройки</h3>
-
 <div class="items-grid gap-2">
 	{#each $items as item, index}
 		<div class="block">
