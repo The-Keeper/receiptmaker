@@ -11,8 +11,10 @@
 		download(JSON.stringify(jsonData), 'настройки.json', 'text/plain');
 	}
 
-	function LoadSettings() {
-		upload()
+	function LoadSettings(data: any) {
+		const jsonData = JSON.parse(data);
+		$settings = jsonData.settings;
+		$items = jsonData.items;
 	}
 </script>
 
@@ -49,6 +51,6 @@
 
 	<div>
 		<Button onclick={ () => SaveSettings() }>Сохранить настройки</Button>
-		<Button onclick={ () => LoadSettings() }>Загрузить настройки</Button>
+		<Button onclick={ () => upload(LoadSettings, 'text/json') }>Загрузить настройки</Button>
 	</div>
 </div>

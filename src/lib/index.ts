@@ -31,13 +31,21 @@ export function download(content: any, fileName: string, contentType: string) {
     a.click();
 }
 
-export function upload() {
+
+const reader = new FileReader();
+
+export function upload(callback: Function, contentType: string) {
     let input = document.createElement('input');
     input.type = 'file';
+    input.accept = contentType;
     input.onchange = _ => {
       // you can use this method to get file and perform respective operations
         let files = Array.from(input.files);
-        console.log(files[0]);
+        reader.onload = function () {
+            callback(reader.result);
+        };
+
+        reader.readAsText(files[0])
     };
     input.click();
     
