@@ -28,4 +28,9 @@
 		<Label for="pricetemplate" class="mb-2">Шаблон цен</Label>
 		<Input type="text" id="pricetemplate" required bind:value={$settings.pricetemplate} />
 	</div>
+
+	<div>
+		<Label for="icon" class="mb-2">URL значка</Label>
+		<Input type="text" id="icon" required bind:value={$settings.icon} />
+	</div>
 </div>

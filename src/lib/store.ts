@@ -16,6 +16,7 @@ export const settings = persisted('settings', {
     currency: 'KZT',
     locale: 'ru-RU',
     pricetemplate: "${price} T",
+    icon: "/coffee.png",
 })
 
 export const items = persisted('items', [

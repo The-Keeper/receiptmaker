@@ -11,7 +11,7 @@
 
 <div class="printarea w-80 rounded bg-gray-50 text-gray-900 px-6 pt-8 shadow-lg">
 	<img
-		src=""
+		src={ $settings.icon }
 		alt=""
 		class="mx-auto w-16 py-4"
 	/>
@@ -53,7 +53,7 @@
                     </tr>
                 {/each}
 				<tr>
-					<td class="py-1"><b>ИТОГО</b></td>
+					<td class="py-1"><b>ИТОГ</b></td>
 					<td class="min-w-[44px] text-center"></td>
 					<td class="min-w-[44px] text-end"><b>{ formatPrice( total ) }</b></td>
 				</tr>	
