@@ -32,6 +32,11 @@
 	</div>
 
 	<div>
+		<Label for="name" class="mb-2">Локаль</Label>
+		<Input type="text" id="name" required bind:value={$settings.locale} />
+	</div>
+
+	<div>
 		<Label for="name" class="mb-2">Валюта</Label>
 		<Select
 			bind:value={$settings.currency}
