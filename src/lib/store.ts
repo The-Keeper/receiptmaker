@@ -1,6 +1,6 @@
 import { persisted } from 'svelte-persisted-store';
 import { writable, derived } from 'svelte/store';
-
+import { base } from '$app/paths';
 export interface StoreItem {
     id: string,
     title: string,
@@ -15,7 +15,7 @@ export const settings = persisted('settings', {
     phone: '+7-номер-телефона',
     locale: 'ru-RU',
     pricetemplate: "${price} ед.",
-    icon: "/favicon.png",
+    icon: `${base}/coffee.png`,
 })
 
 export const items = persisted('items', [
