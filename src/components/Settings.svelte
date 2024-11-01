@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { settings, items } from '$lib/store';
-	import { Label, Button, Input, Select } from 'svelte-5-ui-lib';
-	import { upload, download } from '$lib'
+	import { download, upload } from '$lib';
+	import { items, settings } from '$lib/store';
+	import { Button, Input, Label } from '$lib/ui';
 
 	function SaveSettings() {
 		const jsonData = {
