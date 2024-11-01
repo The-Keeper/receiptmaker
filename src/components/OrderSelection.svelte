@@ -15,14 +15,14 @@
 	<table class="block">
 		<thead>
 			<tr>
-				<th class="py-2">Наименование</th>
-				<th class="min-w-[44px] py-2 text-center">шт.</th>
+				<th class="p-2">Наименование</th>
+				<th class="min-w-[44px] p-2 text-center">шт.</th>
 			</tr>
 		</thead>
 		<tbody>
 			{#each $list as rec, index}
 				<tr>
-					<td class="py-1">{rec.title}</td>
+					<td class="p-2">{rec.title}</td>
 					<td class="min-w-[44px] text-center"
 						><Input type="number" bind:value={$order[index].qty} /></td
 					>
