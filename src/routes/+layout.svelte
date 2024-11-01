@@ -2,10 +2,9 @@
 	import '../app.css';
 	let { children } = $props();
 
-	import { Sidebar, SidebarButton, SidebarGroup, SidebarItem, uiHelpers } from 'svelte-5-ui-lib';
-
-	import { ReceiptSolid, StoreSolid, UserSettingsSolid } from 'flowbite-svelte-icons';
-	import { Darkmode } from 'svelte-5-ui-lib';
+	import { Darkmode, Sidebar, SidebarButton, SidebarGroup, SidebarItem, uiHelpers } from '$lib/ui';
+	import { ReceiptSolid, StoreSolid, UserSettingsSolid } from '$lib/icons';
+	
 	let spanClass = 'flex-1 ms-3 whitespace-nowrap';
   
 	const sidebarUi = uiHelpers();
