@@ -1,0 +1,15 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@media print {
+    body {
+        visibility: hidden;
+    }
+    .printarea {
+        visibility: visible;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}
