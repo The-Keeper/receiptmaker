@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { items, order, list, addOrderItem } from '$lib/store';
-	import { Button, Label, Input, Select } from 'svelte-5-ui-lib';
-	import { ArrowLeftOutline, ArrowRightOutline, CloseCircleSolid } from 'flowbite-svelte-icons';
+	import { list, order } from '$lib/store';
+	import { CloseCircleSolid } from 'flowbite-svelte-icons';
+	import { Button, Input } from 'svelte-5-ui-lib';
 
 	function removeItem(index: number) {
 		$order.splice(index, 1);

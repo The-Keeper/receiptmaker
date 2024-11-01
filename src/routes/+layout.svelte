@@ -1,13 +1,11 @@
 <script lang="ts">
-	import { page } from '$app/stores';
 	import '../app.css';
 	let { children } = $props();
 
-	import { Button, Sidebar, SidebarButton, SidebarGroup, SidebarItem, SidebarCta, uiHelpers } from 'svelte-5-ui-lib';
+	import { Sidebar, SidebarButton, SidebarGroup, SidebarItem, uiHelpers } from 'svelte-5-ui-lib';
 
-	import { DarkMode } from 'flowbite-svelte';
-	let activeUrl = $derived($page.url.pathname);
-	import { ReceiptSolid, CloseOutline, StoreSolid, UserSettingsSolid, ChartPieSolid, GridSolid, MailBoxSolid, UserSolid, ArrowRightToBracketOutline, EditOutline } from 'flowbite-svelte-icons';
+	import { ReceiptSolid, StoreSolid, UserSettingsSolid } from 'flowbite-svelte-icons';
+	import { Darkmode } from 'svelte-5-ui-lib';
 	let spanClass = 'flex-1 ms-3 whitespace-nowrap';
 
 	let btnClass = 'text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-xl p-2';
@@ -49,7 +47,7 @@
 			</SidebarItem>
 		<div>
 			<div class="flex justify-center">
-				<DarkMode />
+				<Darkmode />
 			</div>
 		</div>
 	  </SidebarGroup>

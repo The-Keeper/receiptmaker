@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { parseStringTemplate } from '$lib';
-	import { settings, list } from '$lib/store';
+	import { list, settings } from '$lib/store';
 	const currencyFormatter = new Intl.NumberFormat($settings.locale, { maximumFractionDigits: 2 });
 	const formatPrice = (num: number) => {
 		return parseStringTemplate($settings.pricetemplate, { price: currencyFormatter.format(num) });

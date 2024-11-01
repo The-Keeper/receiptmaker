@@ -1,8 +1,8 @@
 <script lang="ts">  
-    import { items, settings, order } from "$lib/store";
+    import { items, order, settings } from "$lib/store";
     
+    import OrderSelection from "../components/OrderSelection.svelte";
     import Settings from "../components/Settings.svelte";
-	import OrderSelection from "../components/OrderSelection.svelte";
 
 </script>
 
