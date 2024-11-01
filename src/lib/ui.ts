@@ -7,6 +7,4 @@ import SidebarButton from 'svelte-5-ui-lib/SidebarButton.svelte'
 import SidebarGroup from 'svelte-5-ui-lib/SidebarGroup.svelte'
 import SidebarItem from 'svelte-5-ui-lib/SidebarItem.svelte'
 
-import { uiHelpers } from 'svelte-5-ui-lib';
-
-export { Button, Input, Label, Darkmode, Sidebar, SidebarButton, SidebarGroup, SidebarItem, uiHelpers }
+export { Button, Input, Label, Darkmode, Sidebar, SidebarButton, SidebarGroup, SidebarItem }
