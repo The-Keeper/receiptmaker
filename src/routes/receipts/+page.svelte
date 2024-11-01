@@ -1,7 +1,12 @@
-<script lang="ts">  
-	import OrderSelection from "../../components/OrderSelection.svelte";
-import Receipt from "../../components/Receipt.svelte";
-	import SelectionPanel from "../../components/SelectionPanel.svelte";
+<script lang="ts">
+	import { Button } from 'svelte-5-ui-lib';
+	import OrderSelection from '../../components/OrderSelection.svelte';
+	import Receipt from '../../components/Receipt.svelte';
+	import SelectionPanel from '../../components/SelectionPanel.svelte';
+
+	function Print() {
+		window.print()
+	}
 
 </script>
 
@@ -12,4 +17,6 @@ import Receipt from "../../components/Receipt.svelte";
 		<Receipt></Receipt>
 		<OrderSelection></OrderSelection>
 	</div>
+
+	<Button onclick = { Print }>Напечатать</Button>
 </div>
