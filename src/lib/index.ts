@@ -16,7 +16,7 @@ export function array_move(arr: any[], old_index: number, new_index: number) {
     return arr; // for testing purposes
 };
 
-export function parseStringTemplate(str: string, obj: Object) {
+export function parseStringTemplate(str: string, obj: {[index: string]:any}) {
     let parts = str.split(/\$\{(?!\d)[\wæøåÆØÅ]*\}/);
     let args = str.match(/[^{\}]+(?=})/g) || [];
     let parameters = args.map((argument: any) => obj[argument] || (obj[argument] === undefined ? "" : obj[argument]));
@@ -40,7 +40,7 @@ export function upload(callback: Function, contentType: string) {
     input.accept = contentType;
     input.onchange = _ => {
       // you can use this method to get file and perform respective operations
-        let files = Array.from(input.files);
+        let files = Array.from(input.files as ArrayLike<File>);
         reader.onload = function () {
             callback(reader.result);
         };
