@@ -51,6 +51,6 @@
 
 	<div>
 		<Button onclick={ () => SaveSettings() }>Сохранить настройки</Button>
-		<Button onclick={ () => upload(LoadSettings, 'text/json') }>Загрузить настройки</Button>
+		<Button onclick={ () => upload(LoadSettings, '.json') }>Загрузить настройки</Button>
 	</div>
 </div>
