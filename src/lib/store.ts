@@ -15,6 +15,7 @@ export const settings = persisted('settings', {
     phone: '+7-номер-телефона',
     currency: 'KZT',
     locale: 'ru-RU',
+    pricetemplate: "${price} T",
 })
 
 export const items = persisted('items', [

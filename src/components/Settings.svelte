@@ -1,16 +1,6 @@
 <script lang="ts">
 	import { settings, items } from '$lib/store';
 	import { Label, Input, Select } from 'svelte-5-ui-lib';
-
-	// let currencies = $state(Intl.supportedValuesOf('currency'));
-
-	let currencies = $state(['RUB', 'KZT', 'EUR', 'USD']);
-	const currencyValues = $derived(currencies.map((c: any) => {
-		return {
-			value: c,
-			name: c
-		};
-	}));
 </script>
 
 <h3>Настройки</h3>
@@ -37,12 +27,7 @@
 	</div>
 
 	<div>
-		<Label for="name" class="mb-2">Валюта</Label>
-		<Select
-			bind:value={$settings.currency}
-			items={currencyValues}
-			placeholder="Выберите валюту"
-			class="!rounded-s-none"
-		/>
+		<Label for="name" class="mb-2">Шаблон цен</Label>
+		<Input type="text" id="name" required bind:value={$settings.pricetemplate} />
 	</div>
 </div>

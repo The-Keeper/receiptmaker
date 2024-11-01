@@ -15,3 +15,10 @@ export function array_move(arr: any[], old_index: number, new_index: number) {
     arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
     return arr; // for testing purposes
 };
+
+export function parseStringTemplate(str: string, obj: Object) {
+    let parts = str.split(/\$\{(?!\d)[\wæøåÆØÅ]*\}/);
+    let args = str.match(/[^{\}]+(?=})/g) || [];
+    let parameters = args.map((argument: any) => obj[argument] || (obj[argument] === undefined ? "" : obj[argument]));
+    return String.raw({ raw: parts }, ...parameters);
+}

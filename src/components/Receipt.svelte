@@ -1,6 +1,10 @@
 <script lang="ts">
+		import { parseStringTemplate } from '$lib';
 	import { settings, list } from '$lib/store';
-	const currencyFormatter = $derived(new Intl.NumberFormat($settings.locale, { style: 'currency', currency: $settings.currency ? $settings.currency : 'KZT' }))
+	const currencyFormatter = new Intl.NumberFormat($settings.locale, { maximumFractionDigits: 2 });
+	const formatPrice = (num: number) => { 
+		return parseStringTemplate($settings.pricetemplate, { price: currencyFormatter.format(num) })
+	}
 
 	let total = $derived($list.reduce((accumulator, value) => accumulator + value.sum, 0 ))
 </script>
@@ -45,13 +49,13 @@
                     <tr>
                         <td class="py-1">{ rec.title }</td>
                         <td class="min-w-[44px] text-center">{ rec.qty }</td>
-                        <td class="min-w-[44px] text-end">{ currencyFormatter ? currencyFormatter.format(rec.sum) : '' }</td>
+                        <td class="min-w-[44px] text-end">{ formatPrice(rec.sum) }</td>
                     </tr>
                 {/each}
 				<tr>
 					<td class="py-1"><b>ИТОГО</b></td>
 					<td class="min-w-[44px] text-center"></td>
-					<td class="min-w-[44px] text-end"><b>{ currencyFormatter ? currencyFormatter.format( total ) : '' }</b></td>
+					<td class="min-w-[44px] text-end"><b>{ formatPrice( total ) }</b></td>
 				</tr>	
 			</tbody>
 		</table>
