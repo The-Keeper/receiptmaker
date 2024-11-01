@@ -22,3 +22,11 @@ export function parseStringTemplate(str: string, obj: Object) {
     let parameters = args.map((argument: any) => obj[argument] || (obj[argument] === undefined ? "" : obj[argument]));
     return String.raw({ raw: parts }, ...parameters);
 }
+
+export function download(content: any, fileName: string, contentType: string) {
+    var a = document.createElement("a");
+    var file = new Blob([content], {type: contentType});
+    a.href = URL.createObjectURL(file);
+    a.download = fileName;
+    a.click();
+}

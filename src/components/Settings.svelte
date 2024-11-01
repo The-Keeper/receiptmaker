@@ -1,6 +1,19 @@
 <script lang="ts">
 	import { settings, items } from '$lib/store';
-	import { Label, Heading, Input, Select } from 'svelte-5-ui-lib';
+	import { Label, Button, Input, Select } from 'svelte-5-ui-lib';
+	import { download } from '$lib'
+
+	function SaveSettings() {
+		const jsonData = {
+			settings: $settings,
+			items: $items
+		}
+		download(JSON.stringify(jsonData), 'настройки.json', 'text/plain');
+	}
+
+	function LoadSettings() {
+
+	}
 </script>
 
 <div class="flex flex-col gap-3">
@@ -32,5 +45,10 @@
 	<div>
 		<Label for="icon" class="mb-2">URL значка</Label>
 		<Input type="text" id="icon" required bind:value={$settings.icon} />
+	</div>
+
+	<div>
+		<Button onclick={ () => SaveSettings() }>Сохранить настройки</Button>
+		<Button onclick={ () => LoadSettings() }>Загрузить настройки</Button>
 	</div>
 </div>
