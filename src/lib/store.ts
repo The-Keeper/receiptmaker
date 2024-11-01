@@ -13,9 +13,8 @@ export const settings = persisted('settings', {
     name: 'Название',
     address: 'Адрес',
     phone: '+7-номер-телефона',
-    currency: 'KZT',
     locale: 'ru-RU',
-    pricetemplate: "${price} T",
+    pricetemplate: "${price} ед.",
     icon: "/coffee.png",
 })
 
