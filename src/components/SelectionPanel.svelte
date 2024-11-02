@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { addOrderItem, items } from '$lib/store';
-	import { Button } from '$lib/ui';
+	import { Button } from '$lib/ui.svelte';
 </script>
 
 <div class="w-full items-grid gap-2">

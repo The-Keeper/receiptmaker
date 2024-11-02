@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { download, upload } from '$lib';
 	import { items, settings } from '$lib/store';
-	import { Button, Input, Label } from '$lib/ui';
+	import { Button, Input, Label } from '$lib/ui.svelte';
 
 	function SaveSettings() {
 		const jsonData = {

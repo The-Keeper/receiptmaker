@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { array_move } from '$lib';
 	import { items } from '$lib/store';
-	import { Button, Input } from '$lib/ui';
+	import { Button, Input } from '$lib/ui.svelte';
 
-	import { ArrowLeftOutline, ArrowRightOutline, CloseCircleSolid } from '$lib/icons';
+	import { ArrowLeftOutline, ArrowRightOutline, CloseCircleSolid } from '$lib/icons.svelte';
 
 	function addItem() {
 		let newItems = $items;

@@ -3,8 +3,8 @@
 
 	let { children } = $props();
 
-	import { Darkmode, Sidebar, SidebarButton, SidebarGroup, SidebarItem } from '$lib/ui';
-	import { ReceiptSolid, StoreSolid, UserSettingsSolid } from '$lib/icons';
+	import { Darkmode, Sidebar, SidebarButton, SidebarGroup, SidebarItem } from '$lib/ui.svelte';
+	import { ReceiptSolid, StoreSolid, UserSettingsSolid } from '$lib/icons.svelte';
     import { uiHelpers } from '$lib/helpers.svelte';
 
 	let spanClass = 'flex-1 ms-3 whitespace-nowrap';

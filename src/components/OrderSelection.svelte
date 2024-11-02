@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { list, order } from '$lib/store';
-	import { Button, Input } from '$lib/ui'
-	import { CloseCircleSolid } from '$lib/icons'
+	import { Button, Input } from '$lib/ui.svelte'
+	import { CloseCircleSolid } from '$lib/icons.svelte'
 
 	function removeItem(index: number) {
 		$order.splice(index, 1);
