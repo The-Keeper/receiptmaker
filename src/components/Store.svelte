@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { array_move } from '$lib';
 	import { items } from '$lib/store';
-	import { Button, Input } from '$lib/ui.svelte';
+	import { Button, Input } from 'svelte-5-ui-lib';
 
-	import { ArrowLeftOutline, ArrowRightOutline, CloseCircleSolid } from '$lib/icons.svelte';
+	import { ArrowLeftOutline, ArrowRightOutline, CloseCircleSolid } from 'flowbite-svelte-icons'
 
 	function addItem() {
 		let newItems = $items;
