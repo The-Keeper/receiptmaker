@@ -17,13 +17,16 @@ export function array_move(arr: any[], old_index: number, new_index: number) {
 };
 
 export function parseStringTemplate(str: string, obj: {[index: string]:any}) {
-    let parts = str.split(/\$\{(?!\d)[\wæøåÆØÅ]*\}/);
+    let parts = str.split(/\{(?!\d)[\w]*\}/);
     let args = str.match(/[^{\}]+(?=})/g) || [];
     let parameters = args.map((argument: any) => obj[argument] || (obj[argument] === undefined ? "" : obj[argument]));
     return String.raw({ raw: parts }, ...parameters);
 }
 
 export function download(content: any, fileName: string, contentType: string) {
+    if (!document) {
+        return
+    }
     var a = document.createElement("a");
     var file = new Blob([content], {type: contentType});
     a.href = URL.createObjectURL(file);
@@ -31,13 +34,14 @@ export function download(content: any, fileName: string, contentType: string) {
     a.click();
 }
 
-
-const reader = new FileReader();
-
-export function upload(callback: Function, contentType: string) {
+export function upload(callback: Function, accept: string, isBinary = false) {
+    if (!document) {
+        return
+    }
+    const reader = new FileReader();
     let input = document.createElement('input');
     input.type = 'file';
-    input.accept = contentType;
+    input.accept = accept;
     input.onchange = _ => {
       // you can use this method to get file and perform respective operations
         let files = Array.from(input.files as ArrayLike<File>);
@@ -45,7 +49,15 @@ export function upload(callback: Function, contentType: string) {
             callback(reader.result);
         };
 
-        reader.readAsText(files[0])
+        if (files.length == 0) {
+            return;
+        }
+        const file = files[0];
+        if (isBinary) {
+            reader.readAsArrayBuffer(file);
+        } else {
+            reader.readAsText(file)
+        }
     };
     input.click();
     
