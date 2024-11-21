@@ -34,7 +34,7 @@ export const items = persisted('items', [
 
 export const list = derived([items, order], ([items, order]) => {
     return [...order].map((o) => {
-        const data = items.find(i => i.id == o.item_id)
+        const data = items.find(i => i.id === o.item_id)
         return { ...o, ...data, sum: ( data?.price || 0 ) * o.qty }
     })
 })
@@ -43,9 +43,9 @@ export const addOrderItem = ( item: StoreItem ) => {
     order.update( prev => {
         const newOrder = prev;
 
-        let currentIndex = newOrder.findIndex(o => o.item_id == item.id);
+        let currentIndex = newOrder.findIndex(o => o.item_id === item.id);
     
-        if (currentIndex == -1) {
+        if (currentIndex === -1) {
             currentIndex = newOrder.length;
             newOrder.push({ item_id: item.id, qty: 1})
         } else {

@@ -7,7 +7,7 @@ export function array_move(arr: any[], old_index: number, new_index: number) {
         new_index += arr.length;
     }
     if (new_index >= arr.length) {
-        var k = new_index - arr.length + 1;
+        let k = new_index - arr.length + 1;
         while (k--) {
             arr.push(undefined);
         }
@@ -27,8 +27,8 @@ export function download(content: any, fileName: string, contentType: string) {
     if (!document) {
         return
     }
-    var a = document.createElement("a");
-    var file = new Blob([content], {type: contentType});
+    const a = document.createElement("a");
+    const file = new Blob([content], {type: contentType});
     a.href = URL.createObjectURL(file);
     a.download = fileName;
     a.click();
@@ -49,7 +49,7 @@ export function upload(callback: Function, accept: string, isBinary = false) {
             callback(reader.result);
         };
 
-        if (files.length == 0) {
+        if (files.length === 0) {
             return;
         }
         const file = files[0];
