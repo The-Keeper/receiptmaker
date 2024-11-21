@@ -19,8 +19,9 @@
 	}
 
 	function removeItem(index: number) {
-		$items.splice(index, 1);
-		$items = $items;
+		const newArray = $items;
+		newArray.splice(index, 1);
+		$items = newArray;
 	}
 
 

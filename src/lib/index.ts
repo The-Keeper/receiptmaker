@@ -1,4 +1,5 @@
 // place files you want to import through the `$lib` alias in this folder.
+// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 export function array_move(arr: any[], old_index: number, new_index: number) {
     while (old_index < 0) {
         old_index += arr.length;

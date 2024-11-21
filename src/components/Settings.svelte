@@ -11,7 +11,7 @@
 		download(JSON.stringify(jsonData), 'настройки.json', 'text/plain');
 	}
 
-	function LoadSettings(data: any) {
+	function LoadSettings(data: string) {
 		const jsonData = JSON.parse(data);
 		$settings = jsonData.settings;
 		$items = jsonData.items;

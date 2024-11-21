@@ -4,8 +4,9 @@
 	import { CloseCircleSolid } from 'flowbite-svelte-icons';
 
 	function removeItem(index: number) {
-		$order.splice(index, 1);
-		$order = $order;
+		const newArray = $order;
+		newArray.splice(index, 1);
+		$order = newArray;
 	}
 </script>
 
