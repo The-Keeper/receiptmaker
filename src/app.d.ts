@@ -8,6 +8,10 @@ declare global {
 		// interface PageState {}
 		// interface Platform {}
 	}
+	namespace Belt {
+		type UseMutableArrays = 1
+	}
+	  
 }
 
 export {};

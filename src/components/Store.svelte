@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { array_move } from '$lib';
 	import { items } from '$lib/store';
 	import { Button, Input } from 'svelte-5-ui-lib';
+	import { A } from '@mobily/ts-belt';
 
 	import { ArrowLeftOutline, ArrowRightOutline, CloseCircleSolid } from 'flowbite-svelte-icons'
 
@@ -13,7 +13,7 @@
 
 	function moveItemLeft(index: number) {
 		if (index > 0) {
-			const newItems = array_move($items, index, index-1);
+			const newItems = A.swapAt($items, index, index-1);
 			$items = newItems;
 		}
 	}
@@ -27,7 +27,7 @@
 
 	function moveItemRight(index: number) {
 		if (index < $items.length - 1) {
-			const newItems = array_move($items, index, index+1);
+			const newItems = A.swapAt($items, index, index+1);
 			$items = newItems;
 		}
 	}

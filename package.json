@@ -27,6 +27,7 @@
     "vite": "^5.4.11"
   },
   "dependencies": {
+    "@mobily/ts-belt": "^3.13.1",
     "svelte-persisted-store": "^0.11.0"
   }
 }
