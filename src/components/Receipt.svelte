@@ -6,8 +6,8 @@
 		return parseStringTemplate($settings.pricetemplate, { price: currencyFormatter.format(num) });
 	};
 
-	let total = $derived($list.reduce((accumulator, value) => accumulator + value.sum, 0));
-	let date = $derived(`${$list.length > 0 ?  '': ''} ${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`);
+	const total = $derived($list.reduce((accumulator, value) => accumulator + value.sum, 0));
+	const date = $derived(`${$list.length > 0 ?  '': ''} ${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`);
 </script>
 
 <div class="printarea w-80 rounded bg-gray-50 px-6 pt-8 text-gray-900 shadow-lg">

@@ -6,14 +6,14 @@
 	import { ArrowLeftOutline, ArrowRightOutline, CloseCircleSolid } from 'flowbite-svelte-icons'
 
 	function addItem() {
-		let newItems = $items;
+		const newItems = $items;
 		newItems.push({ id: new Date().toISOString(), title: `Товар ${$items.length}`, price: 0 });
 		$items = newItems;
 	}
 
 	function moveItemLeft(index: number) {
 		if (index > 0) {
-			let newItems = array_move($items, index, index-1);
+			const newItems = array_move($items, index, index-1);
 			$items = newItems;
 		}
 	}
@@ -26,7 +26,7 @@
 
 	function moveItemRight(index: number) {
 		if (index < $items.length - 1) {
-			let newItems = array_move($items, index, index+1);
+			const newItems = array_move($items, index, index+1);
 			$items = newItems;
 		}
 	}

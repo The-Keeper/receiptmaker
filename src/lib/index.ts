@@ -17,9 +17,9 @@ export function array_move(arr: any[], old_index: number, new_index: number) {
 };
 
 export function parseStringTemplate(str: string, obj: {[index: string]:any}) {
-    let parts = str.split(/\{(?!\d)[\w]*\}/);
-    let args = str.match(/[^{\}]+(?=})/g) || [];
-    let parameters = args.map((argument: any) => obj[argument] || (obj[argument] === undefined ? "" : obj[argument]));
+    const parts = str.split(/\{(?!\d)[\w]*\}/);
+    const args = str.match(/[^{\}]+(?=})/g) || [];
+    const parameters = args.map((argument: any) => obj[argument] || (obj[argument] === undefined ? "" : obj[argument]));
     return String.raw({ raw: parts }, ...parameters);
 }
 
@@ -39,13 +39,13 @@ export function upload(callback: Function, accept: string, isBinary = false) {
         return
     }
     const reader = new FileReader();
-    let input = document.createElement('input');
+    const input = document.createElement('input');
     input.type = 'file';
     input.accept = accept;
     input.onchange = _ => {
       // you can use this method to get file and perform respective operations
-        let files = Array.from(input.files as ArrayLike<File>);
-        reader.onload = function () {
+        const files = Array.from(input.files as ArrayLike<File>);
+        reader.onload = () => {
             callback(reader.result);
         };
 
