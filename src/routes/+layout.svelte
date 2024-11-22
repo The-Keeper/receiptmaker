@@ -32,12 +32,12 @@
 <div class="relative">
 	<Sidebar isOpen={isSidebarOpen} closeSidebar={sidebarUi.close} activeClass="p-2" nonActiveClass="p-2">
 		<SidebarGroup>
-		<SidebarItem label="Чеки"  href={`${base}/receipts/`}>
+		<SidebarItem label="Чеки"  href={`${base}/receipts`}>
 			{#snippet iconSlot()}
 				<ReceiptSolid class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
 			{/snippet}
 		  </SidebarItem>
-		<SidebarItem label="Склад" {spanClass} href={`${base}/store/`}>
+		<SidebarItem label="Склад" {spanClass} href={`${base}/store`}>
 			{#snippet iconSlot()}
 			<StoreSolid class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
 			{/snippet}
@@ -45,7 +45,7 @@
 			<span class="inline-flex justify-center items-center px-2 ms-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-300"> { $items.length } </span>
 			{/snippet}
 		</SidebarItem>
-		<SidebarItem label="Настройки"  href={`${base}/settings/`}>
+		<SidebarItem label="Настройки"  href={`${base}/settings`}>
 			{#snippet iconSlot()}
 			  <UserSettingsSolid class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
 			  {/snippet}
