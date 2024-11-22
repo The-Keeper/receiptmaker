@@ -19,16 +19,19 @@
 
 	import { items } from '$lib/store';
 	import { base } from '$app/paths';
+	import { page } from '$app/stores';
+
+	const activeUrl = $state($page.url.pathname);
 
  </script>
   
-  <header class="fixed top-0 z-40 mx-auto w-full flex-none border-b border-gray-200 bg-white dark:border-gray-600 dark:bg-gray-800">
-	<SidebarButton onclick={ sidebarUi.toggle } class="mb-2" />
+  <header class="">
+	<SidebarButton onclick={sidebarUi.toggle} class="mb-2" />
 </header>
 
-  <div class="overflow-hidden lg:flex">
-  <Sidebar isOpen={isSidebarOpen} closeSidebar={sidebarUi.close} activeClass="p-2" nonActiveClass="p-2">
-	  <SidebarGroup>
+<div class="relative">
+	<Sidebar isOpen={isSidebarOpen} closeSidebar={sidebarUi.close} activeClass="p-2" nonActiveClass="p-2">
+		<SidebarGroup>
 		<SidebarItem label="Чеки"  href={`${base}/receipts/`}>
 			{#snippet iconSlot()}
 				<ReceiptSolid class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
@@ -54,8 +57,8 @@
 		</div>
 	  </SidebarGroup>
   </Sidebar>
-
-  	<main class="h-full w-full overflow-y-auto lg:ml-64 pt-[70px]">
+	<main class="h-full w-full overflow-y-auto lg:ml-64 pt-[70px]">
 		{@render children()}
 	</main>
+
 </div>

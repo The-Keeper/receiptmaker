@@ -4,7 +4,7 @@ import { defineConfig, presetUno } from 'unocss';
 export default defineConfig({
 	// ...UnoCSS options
 	content: {
-		filesystem: ['src/**/*.svelte', 'src/**/*.html', './node_modules/**/*.svelte'],
+		filesystem: ['src/**/*.svelte', 'src/**/*.html'],
 	},
 	presets: [presetUno()],
 	theme: {
