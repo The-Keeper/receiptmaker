@@ -2,12 +2,7 @@
 	import { list, order } from '$lib/store';
 	import { Button, Input } from 'svelte-5-ui-lib';
 	import { CloseCircleSolid } from 'flowbite-svelte-icons';
-
-	function removeItem(index: number) {
-		const newArray = $order;
-		newArray.splice(index, 1);
-		$order = newArray;
-	}
+	import { A } from '@mobily/ts-belt';
 </script>
 
 <div>
@@ -28,7 +23,7 @@
 						><Input type="number" bind:value={$order[index].qty} /></td
 					>
 					<td
-						><Button onclick={() => removeItem(index)} pill={true} class="p-1" color="red"
+						><Button onclick={() => $order = A.removeAt($order, index)} pill={true} class="p-1" color="red"
 							><CloseCircleSolid /></Button
 						></td
 					>

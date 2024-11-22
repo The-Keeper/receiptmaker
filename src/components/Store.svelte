@@ -11,35 +11,15 @@
 		$items = newItems;
 	}
 
-	function moveItemLeft(index: number) {
-		if (index > 0) {
-			const newItems = A.swapAt($items, index, index-1);
-			$items = newItems;
-		}
-	}
-
-	function removeItem(index: number) {
-		const newArray = $items;
-		newArray.splice(index, 1);
-		$items = newArray;
-	}
-
-
-	function moveItemRight(index: number) {
-		if (index < $items.length - 1) {
-			const newItems = A.swapAt($items, index, index+1);
-			$items = newItems;
-		}
-	}
 </script>
 
 <div class="items-grid gap-2">
 	{#each $items as item, index}
 		<div class="block">
 			<div>
-				<Button onclick={() => moveItemLeft(index)} disabled={index == 0} pill={true} class="p-1" color="alternative"><ArrowLeftOutline class="w-4 h-4" /></Button>
-				<Button onclick={ () => removeItem(index) } pill={true} class="p-1" color="red"><CloseCircleSolid /></Button>
-				<Button onclick={() => moveItemRight(index)} disabled={index == $items.length - 1} pill={true} class="p-1" color="alternative"><ArrowRightOutline  class="w-4 h-4" /></Button>
+				<Button onclick={() => $items = A.swapAt($items, index, index-1)} disabled={index == 0} pill={true} class="p-1" color="alternative"><ArrowLeftOutline class="w-4 h-4" /></Button>
+				<Button onclick={() => $items = A.removeAt($items, index) } pill={true} class="p-1" color="red"><CloseCircleSolid /></Button>
+				<Button onclick={() => $items = A.swapAt($items, index, index+1)} disabled={index == $items.length - 1} pill={true} class="p-1" color="alternative"><ArrowRightOutline  class="w-4 h-4" /></Button>
 			</div>
 			<div>
 				<Input bind:value={item.title} />
