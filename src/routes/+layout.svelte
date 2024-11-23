@@ -11,10 +11,15 @@
 
 	const spanClass = 'flex-1 ms-3 whitespace-nowrap';
   
+	const SIDEBAR_BREAKPOINT = "md"
+	const SIDEBAR_BREAKPOINT_SZ = 768;
+
+	let innerWidth = $state(0);
+
 	const sidebarUi = uiHelpers();
 	let isSidebarOpen = $state(false);
 	$effect(() => {
-		isSidebarOpen = sidebarUi.isOpen;
+		isSidebarOpen = sidebarUi.isOpen || innerWidth >= SIDEBAR_BREAKPOINT_SZ;
 	});
 
 	import { items } from '$lib/store';
@@ -25,12 +30,14 @@
 
  </script>
   
-  <header class="">
+<header class="md:hidden">
 	<SidebarButton onclick={sidebarUi.toggle} class="mb-2" />
 </header>
 
+<svelte:window bind:innerWidth={innerWidth} />
+
 <div class="relative">
-	<Sidebar isOpen={isSidebarOpen} closeSidebar={sidebarUi.close} activeClass="p-2" nonActiveClass="p-2">
+	<Sidebar breakpoint={SIDEBAR_BREAKPOINT} backdrop={false} isOpen={isSidebarOpen} closeSidebar={sidebarUi.close} activeClass="p-2" nonActiveClass="p-2">
 		<SidebarGroup>
 		<SidebarItem label="Чеки"  href={`${base}/receipts`}>
 			{#snippet iconSlot()}
@@ -57,7 +64,8 @@
 		</div>
 	  </SidebarGroup>
   </Sidebar>
-	<main class="h-full w-full overflow-y-auto lg:ml-64 pt-[70px]">
+   <!-- according to SIDEBAR_BREAKPOINT: ml-64 -->
+	<main class="h-full w-full overflow-y-auto md:ms-64 pt-[70px]">
 		{@render children()}
 	</main>
 
