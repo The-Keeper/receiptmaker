@@ -12,7 +12,7 @@
 
 <div class="printarea w-80 rounded bg-gray-50 px-6 pt-8 text-gray-900 shadow-lg">
 	{#if $settings.icon}
-		<img src={$settings.icon} alt="" class="mx-auto w-16 py-4" />
+		<img src={$settings.icon} alt="" class="rounded-full mx-auto w-16 py-4" />
 	{/if}
 	<div class="flex flex-col items-center justify-center gap-2">
 		<h4 class="font-semibold">{$settings.name}</h4>
