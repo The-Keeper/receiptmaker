@@ -9,7 +9,7 @@ export interface StoreItem {
 
 export const order = writable([] as { item_id: string, qty: number}[]);
 
-export const settings = persisted('settings', {
+export const settings = persisted<{[index: string]: string}>('settings', {
     name: 'Название',
     address: 'Адрес',
     phone: '+7-номер-телефона',
@@ -18,7 +18,7 @@ export const settings = persisted('settings', {
     icon: `${base}/coffee.png`,
 })
 
-export const settingLabels = {
+export const settingLabels: {[index: string]: string}  = {
     name: 'Название места',
     address: 'Адрес',
     phone: 'Номер телефона',

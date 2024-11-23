@@ -12,8 +12,8 @@
 
  </script>
   
-<header class="color-red">
-	<div class="flex">
+<header class="p-3">
+	<div class="flex justify-center gap-4">
 		<a href={`${base}/receipts`}>Чеки</a>
 		<a href={`${base}/store`}>Склад</a>
 		<a href={`${base}/settings`}>Настройки</a>
