@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { Button } from 'svelte-5-ui-lib';
 	import OrderSelection from '../../components/OrderSelection.svelte';
 	import Receipt from '../../components/Receipt.svelte';
 	import SelectionPanel from '../../components/SelectionPanel.svelte';
@@ -20,7 +19,7 @@
 		<div class="flex flex-col gap-4 items-center">
 		<Receipt></Receipt>
 
-		<Button onclick = { Print }><PrinterSolid class="me-2 h-4 w-4" /> Напечатать</Button>
+		<button onclick = { Print }><PrinterSolid class="me-2 h-4 w-4" /> Напечатать</button>
 
 		</div>
 		<OrderSelection></OrderSelection>

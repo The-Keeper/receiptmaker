@@ -1,12 +1,11 @@
 <script lang="ts">
 	import { list, order } from '$lib/store';
-	import { Button, Input } from 'svelte-5-ui-lib';
 	import { CloseCircleSolid } from 'flowbite-svelte-icons';
 	import { A } from '@mobily/ts-belt';
 </script>
 
 <div>
-	<Button color="alternative" onclick={() => ($order = [])} pill={true}>Очистить заказ</Button>
+	<button color="alternative" onclick={() => ($order = [])}>Очистить заказ</button>
 
 	<table class="block">
 		<thead>
@@ -20,11 +19,11 @@
 				<tr>
 					<td class="p-2">{rec.title}</td>
 					<td class="min-w-[44px] text-center"
-						><Input type="number" bind:value={$order[index].qty} /></td
+						><input type="number" bind:value={$order[index].qty} /></td
 					>
 					<td
-						><Button onclick={() => $order = A.removeAt($order, index)} pill={true} class="p-1" color="red"
-							><CloseCircleSolid /></Button
+						><button onclick={() => $order = A.removeAt($order, index)} class="p-1" color="red"
+							><CloseCircleSolid /></button
 						></td
 					>
 				</tr>

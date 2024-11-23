@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { items } from '$lib/store';
-	import { Button, Input } from 'svelte-5-ui-lib';
 	import { A } from '@mobily/ts-belt';
 
 	import { ArrowLeftOutline, ArrowRightOutline, CloseCircleSolid } from 'flowbite-svelte-icons'
@@ -17,17 +16,17 @@
 	{#each $items as item, index}
 		<div class="block">
 			<div>
-				<Button onclick={() => $items = A.swapAt($items, index, index-1)} disabled={index == 0} pill={true} class="p-1" color="alternative"><ArrowLeftOutline class="w-4 h-4" /></Button>
-				<Button onclick={() => $items = A.removeAt($items, index) } pill={true} class="p-1" color="red"><CloseCircleSolid /></Button>
-				<Button onclick={() => $items = A.swapAt($items, index, index+1)} disabled={index == $items.length - 1} pill={true} class="p-1" color="alternative"><ArrowRightOutline  class="w-4 h-4" /></Button>
+				<button onclick={() => $items = A.swapAt($items, index, index-1)} disabled={index == 0} class="p-1" color="alternative"><ArrowLeftOutline class="w-4 h-4" /></button>
+				<button onclick={() => $items = A.removeAt($items, index) } class="p-1" color="red"><CloseCircleSolid /></button>
+				<button onclick={() => $items = A.swapAt($items, index, index+1)} disabled={index == $items.length - 1} class="p-1" color="alternative"><ArrowRightOutline  class="w-4 h-4" /></button>
 			</div>
 			<div>
-				<Input bind:value={item.title} />
-				<Input type="number" bind:value={item.price} />
+				<input bind:value={item.title} />
+				<input type="number" bind:value={item.price} />
 			</div>
 		</div>
 	{/each}
-	<Button onclick={addItem}>Добавить</Button>
+	<button onclick={addItem}>Добавить</button>
 </div>
 
 <style>
