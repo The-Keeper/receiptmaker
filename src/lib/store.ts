@@ -18,6 +18,15 @@ export const settings = persisted('settings', {
     icon: `${base}/coffee.png`,
 })
 
+export const settingLabels = {
+    name: 'Название места',
+    address: 'Адрес',
+    phone: 'Номер телефона',
+    locale: 'Локаль',
+    pricetemplate: 'Шаблон цен',
+    icon: 'URL значка',
+}
+
 export const items = persisted('items', [
         {
             id: '123',
