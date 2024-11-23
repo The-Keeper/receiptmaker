@@ -2,6 +2,10 @@
 	import { list, order } from '$lib/store';
 	import { CloseCircleSolid } from 'flowbite-svelte-icons';
 	import { A } from '@mobily/ts-belt';
+
+	function removeOrderItem(index: number) {
+		$order = A.removeAt($order, index)
+	}
 </script>
 
 <div>
@@ -21,11 +25,9 @@
 					<td class="min-w-[44px] text-center"
 						><input type="number" class="input" bind:value={$order[index].qty} /></td
 					>
-					<td
-						><button onclick={() => { $order = A.removeAt($order, index) }} class="p-1" color="red"
-							><CloseCircleSolid /></button
-						></td
-					>
+					<td>
+						<button onclick={() => removeOrderItem(index)} class="p-1 text-red"><CloseCircleSolid class="w-4 h-4" /></button>
+					</td>
 				</tr>
 			{/each}
 		</tbody>

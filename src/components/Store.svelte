@@ -5,9 +5,7 @@
 	import { ArrowLeftOutline, ArrowRightOutline, CloseCircleSolid } from 'flowbite-svelte-icons'
 
 	function addItem() {
-		const newItems = $items;
-		newItems.push({ id: new Date().toISOString(), title: `Товар ${$items.length}`, price: 0 });
-		$items = newItems;
+		$items = A.append($items, { id: new Date().toISOString(), title: `Товар ${$items.length}`, price: 0 } );
 	}
 
 </script>
