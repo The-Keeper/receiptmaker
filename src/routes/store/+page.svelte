@@ -2,6 +2,7 @@
 	import Store from "../../components/Store.svelte";
 </script>
 
-<h3 class="title">Склад</h3>
-
+<div class="m-auto max-w-screen-md">
+<h3 class="title p-be-3">Склад</h3>	
 <Store></Store>
+</div>

@@ -11,7 +11,7 @@
 
 </script>
 
-<div class="flex flex-col gap-6">
+<div class="flex flex-col gap-6 m-auto max-w-screen-lg">
 	<SelectionPanel></SelectionPanel>
 
 	<div class="flex flex-wrap gap-4">

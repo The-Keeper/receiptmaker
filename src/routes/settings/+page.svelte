@@ -2,6 +2,8 @@
     import Settings from "../../components/Settings.svelte";
 </script>
 
-<h3 class="title">Настройки</h3>
+<div class="m-auto max-w-screen-md">
 
-<Settings></Settings>
+<h3 class="title p-be-3">Настройки</h3>
+    <Settings/>
+</div>
