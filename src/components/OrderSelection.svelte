@@ -5,7 +5,7 @@
 </script>
 
 <div>
-	<button color="alternative" onclick={() => ($order = [])}>Очистить заказ</button>
+	<button type="button" class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" onclick={() => ($order = [])}>Очистить заказ</button>
 
 	<table class="block">
 		<thead>
@@ -19,10 +19,10 @@
 				<tr>
 					<td class="p-2">{rec.title}</td>
 					<td class="min-w-[44px] text-center"
-						><input type="number" bind:value={$order[index].qty} /></td
+						><input type="number" class="input" bind:value={$order[index].qty} /></td
 					>
 					<td
-						><button onclick={() => $order = A.removeAt($order, index)} class="p-1" color="red"
+						><button onclick={() => { $order = A.removeAt($order, index) }} class="p-1" color="red"
 							><CloseCircleSolid /></button
 						></td
 					>

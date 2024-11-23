@@ -21,6 +21,6 @@
 </header>
 
 
-	<main class="h-full w-full overflow-y-auto md:ms-64 pt-[70px]">
+	<main class="h-full w-full overflow-y-auto">
 		{@render children()}
 	</main>
