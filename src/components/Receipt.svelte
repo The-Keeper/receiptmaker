@@ -10,11 +10,11 @@
 	const date = $derived(`${$list.length > 0 ?  '': ''} ${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`);
 </script>
 
-<div class="printarea w-80 rounded bg-gray-50 px-6 pt-8 text-gray-900 shadow-lg">
+<div class="printarea w-80 bg-gray-50 px-6 pt-8 text-gray-900 shadow-lg">
 	{#if $settings.icon}
-		<img src={$settings.icon} alt="" class="rounded-full mx-auto w-16 py-4" />
+		<img src={$settings.icon} alt="" class="rounded-full mx-auto w-16 h-16" />
 	{/if}
-	<div class="flex flex-col items-center justify-center gap-2">
+	<div class="p-bs-3 flex flex-col items-center justify-center gap-2">
 		<h4 class="font-semibold">{$settings.name}</h4>
 		<p class="text-xs">{$settings.address}</p>
 	</div>
