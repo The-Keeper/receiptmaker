@@ -53,7 +53,7 @@
 	  </SidebarGroup>
   </Sidebar>
 
-  	<main class="h-full w-full overflow-y-auto lg:ml-64 pt-[70px]">
+  	<main class="h-full w-full overflow-y-auto md:ml-64 pt-[70px]">
 		{@render children()}
 	</main>
 </div>

@@ -3,8 +3,9 @@ import type { Config } from 'tailwindcss';
 export default {
 	content: [
 		'./src/**/*.{html,js,svelte,ts}',
-		'./node_modules/svelte-5-ui-lib/**/*.{html,js,svelte,ts}',
-		'./node_modules/flowbite-svelte-icons/**/*.{html,js,svelte,ts}'
+		'./node_modules/svelte-5-ui-lib/dist/{sidebar,buttons}/*.{html,js,svelte,ts}',
+		'./node_modules/svelte-5-ui-lib/dist/forms/{input,label}/*.{html,js,svelte,ts}',
+	    './node_modules/flowbite-svelte-icons/**/*.{html,js,svelte,ts}'
 	],
 	darkMode: 'selector',
 	theme: {
