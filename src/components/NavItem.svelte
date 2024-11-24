@@ -10,4 +10,4 @@
  </script>
 
 
-<a class="flex p-2 rounded-2 {activeUrl===href ? "bg-gray-700" : ""}" {href}>{@render children()}</a>
+<a class="flex gap-1 p-2 rounded-2 {activeUrl===href ? "bg-gray-700" : ""}" {href}>{@render children()}</a>

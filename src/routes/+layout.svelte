@@ -6,11 +6,8 @@
 	const { children } = $props();
 
 	import { base } from '$app/paths';
-	import { page } from '$app/stores';
 	import { ReceiptOutline, StoreOutline, UserSettingsOutline } from 'flowbite-svelte-icons';
 	import NavItem from '../components/NavItem.svelte';
-
-	const activeUrl = $derived($page.url.pathname);
 
  </script>
 
