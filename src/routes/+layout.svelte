@@ -6,21 +6,19 @@
 	const { children } = $props();
 
 	import { base } from '$app/paths';
-	import { page } from '$app/stores';
-
-	const activeUrl = $state($page.url.pathname);
+	import { ReceiptOutline, StoreOutline, UserSettingsOutline } from 'flowbite-svelte-icons';
+	import NavItem from '../components/NavItem.svelte';
 
  </script>
+
   
-<header class="p-3">
-	<div class="flex justify-center gap-4">
-		<a href={`${base}/receipts`}>Чеки</a>
-		<a href={`${base}/store`}>Склад</a>
-		<a href={`${base}/settings`}>Настройки</a>
+	<div class="relative flex justify-center gap-2 p-3 flex-wrap md:p-5 md:w-64 md:fixed md:flex-col">
+		<NavItem href={`${base}/receipts`}><ReceiptOutline/> Чеки</NavItem>
+		<NavItem href={`${base}/store`}><StoreOutline /> Склад</NavItem>
+		<NavItem href={`${base}/settings`}><UserSettingsOutline /> Настройки</NavItem>
 	</div>
-</header>
 
 
-	<main class="h-full w-full overflow-y-auto">
+	<main class="md:ml-64 p-4">
 		{@render children()}
 	</main>
