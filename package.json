@@ -20,6 +20,7 @@
     "svelte": "^5.2.7",
     "flowbite-svelte-icons": "^2.0.2",
     "svelte-check": "^4.1.0",
+    "t18s": "^0.1.2",
     "typescript": "^5.7.2",
     "vite": "^5.4.11",
     "unocss": "^0.58.9",
