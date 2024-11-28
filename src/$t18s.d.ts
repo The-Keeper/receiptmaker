@@ -35,5 +35,5 @@ declare module "$t18s/messages" {
     export const receipts: (values?: undefined) => string;
     export const store: (values?: undefined) => string;
     export const settings: (values?: undefined) => string;
-    export const test: (values?: undefined) => string
+    export const test: (values: {arg: string}) => string
 }

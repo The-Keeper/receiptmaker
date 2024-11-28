@@ -5,11 +5,12 @@
 
 	import * as t from "$t18s/messages";
 
-	import { locale, setLocale, locales } from "$t18s";
+	import { locale, locales } from "$t18s";
     import { browser } from "$app/environment";
 
 	$effect(() => { if (browser) { 
 		document.documentElement.lang = $locale 
+		console.log($locale, t.test({ arg: '1' }))
 		}
 	})
 
@@ -31,12 +32,12 @@
 
 	<div>
 		{#each locales as l}
-			<button onclick={() => setLocale(l)}>{l}</button>
+			<button onclick={() => { locale.set(l) } }>{l}</button>
 		{/each}
 	</div>
 
 	<div>current locale: {$locale}</div>
-	<h1>{ t.test() }</h1>
+	<h1>{ t.test({ arg: '2' }) }</h1>
 
 </div>
 
