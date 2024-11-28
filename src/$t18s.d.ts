@@ -6,13 +6,13 @@ declare module "$t18s" {
     import type { Writable, Readable } from 'svelte/store';
 
     /** The available locales */
-    type Locales = ["en","ru"];
+    type Locales = ["ru","en"];
     
     /** The known locales */
     export type Locale = Locales[number];
     
     /** The fallback locale that's currently in use. */
-    export const fallbackLocale: "ru";
+    export const fallbackLocale: "en";
     
     /** The available locales */
     export const locales : Locales;
@@ -34,5 +34,6 @@ declare module "$t18s" {
 declare module "$t18s/messages" {
     export const receipts: (values?: undefined) => string;
     export const store: (values?: undefined) => string;
-    export const settings: (values?: undefined) => string
+    export const settings: (values?: undefined) => string;
+    export const test: (values?: undefined) => string
 }

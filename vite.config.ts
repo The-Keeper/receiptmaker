@@ -8,8 +8,8 @@ export default defineConfig({
 		unocss(), 
 		sveltekit(),
 		t18s({
-			locales: ["en", "ru"],
-			fallbackLocale: "ru",
+			locales: ["ru", "en"],
+			fallbackLocale: "en",
 		}),	  
 	]
 });
