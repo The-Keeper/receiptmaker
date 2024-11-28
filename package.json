@@ -19,6 +19,7 @@
     "prettier-plugin-svelte": "^3.3.2",
     "svelte": "^5.2.7",
     "flowbite-svelte-icons": "^2.0.2",
+    "typesafe-i18n": "5.26.2",
     "svelte-check": "^4.1.0",
     "typescript": "^5.7.2",
     "vite": "^5.4.11",
